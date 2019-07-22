@@ -1,0 +1,12 @@
+{
+    "name": "reflector",
+    "version": "1.0.0",
+    "main": "reflector.js",
+    "scripts": {
+        "dev": "nodemon ./reflector.js",
+        "prod": "node ./reflector.js"
+    },    
+    "devDependencies": {
+        "nodemon": "^1.19.1"
+    }
+}

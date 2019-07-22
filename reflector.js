@@ -14,11 +14,13 @@ var dumpheader = function(req, res)
         // obtain the request level variables
         req_hostname = req.hostname;
         req_baseurl = req.baseUrl;
-        req_ipaddr = req.ip; //
+        req_ipaddr = req.headers['x-forwarded-for'] ||  req.connection.remoteAddress ||  req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         req_protocol = req.protocol; //
         req_method = req.method;
         req_headers = JSON.stringify(req.headers);
         s = JSON.parse(req_headers);
+
+        console.log(s);
                 
         // set some headers
         res.setHeader("Cache-Control", "no-store");
